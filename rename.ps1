@@ -35,7 +35,7 @@ Function RenameFile($fileName)
 
 Function RenameFilesInDir($dirName)
 {	
-	$files = Get-ChildItem $dirName *.*
+	$files = Get-ChildItem $dirName | where { $_.FullName.Contains($OldName)}
 	ForEach ($file in $files) 
 	{ 
 		if ($file.PSisContainer){
